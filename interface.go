@@ -14,4 +14,7 @@ type Queue interface {
 
 	// Wait blocks until all queued Jobs to finish being processed
 	Wait()
+
+	// CloseAndWait disallows any futher Jobs from being added to the queue and blocks until all queued Jobs to finish being processed
+	CloseAndWait()
 }

@@ -59,3 +59,8 @@ func (q *workerQueue) Close() {
 func (q *workerQueue) Wait() {
 	q.wg.Wait()
 }
+
+func (q *workerQueue) CloseAndWait() {
+	q.Close()
+	q.Wait()
+}

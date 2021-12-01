@@ -8,22 +8,25 @@ A simple importable queue library for Golang.
 package main
 
 import (
-    "fmt"
+	"fmt"
 
-    "github.com/adenix/go-queue"
+	"github.com/adenix/go-queue"
 )
 
 func main() {
-    q := queue.NewWorkerQueue(10, 10)
+	q := queue.NewWorkerQueue(10, 10)
 
-    for i := 0; i < 100; i++ {
-        q.EnqueueBlock(newJob(fmt.Sprintf("Austin %d", i)))
-    }
+	for i := 0; i < 100; i++ {
+		q.EnqueueBlock(newJob(fmt.Sprintf("Austin %d", i)))
+	}
+
+	q.CloseAndWait()
 }
 
 func newJob(name string) queue.Job {
-    return func() {
-        fmt.Printf("Hello, %s!\n", name)
-    }
+	return func() queue.JobResult {
+		fmt.Printf("Hello, %s!\n", name)
+		return queue.Success
+	}
 }
 ```

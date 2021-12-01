@@ -63,8 +63,7 @@ func TestQueue(t *testing.T) {
 			}
 
 			wg.Wait()
-			q.Close()
-			q.Wait()
+			q.CloseAndWait()
 
 			s.Lock()
 			if s.called != c.calledExpected {

@@ -10,7 +10,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/adenix/go-queue"
+	"go.adenix.dev/queue"
 )
 
 func main() {

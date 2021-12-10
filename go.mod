@@ -1,3 +1,3 @@
-module github.com/adenix/go-queue
+module go.adenix.dev/queue
 
 go 1.17

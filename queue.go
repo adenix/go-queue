@@ -1,3 +1,4 @@
+// Package queue implements a First-In-First-Out (FIFO) queue.
 package queue
 
 // Queue is a First-In-First-Out (FIFO) structure that allows enqueuing of Jobs to be processed asyncronusly

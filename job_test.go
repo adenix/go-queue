@@ -6,33 +6,33 @@ import (
 )
 
 func TestJobResult(t *testing.T) {
-	cases := []struct {
-		result   JobResult
+	tests := []struct {
+		actual   JobResult
 		expected string
 	}{
 		{
-			result:   Fail,
-			expected: "fail",
+			actual:   Fail,
+			expected: "Fail",
 		},
 		{
-			result:   Success,
-			expected: "success",
+			actual:   Success,
+			expected: "Success",
 		},
 		{
-			result:   Skip,
-			expected: "skip",
+			actual:   Skip,
+			expected: "Skip",
 		},
 		{
-			result:   100,
-			expected: "unknown",
+			actual:   100,
+			expected: "JobResult(100)",
 		},
 	}
 
-	for i, c := range cases {
+	for i, test := range tests {
 		t.Run(fmt.Sprintf("JobResult-%d", i), func(t *testing.T) {
-			actual := c.result.String()
-			if actual != c.expected {
-				t.Errorf("expected string of %s, got %s", c.expected, actual)
+			actual := test.actual.String()
+			if actual != test.expected {
+				t.Errorf("expected string of %s, got %s", test.expected, actual)
 			}
 		})
 	}

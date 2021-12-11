@@ -12,7 +12,7 @@ type workerQueue struct {
 var _ Queue = (*workerQueue)(nil)
 
 // New constructs a queue with a specified capacity and concurrency to process Jobs
-func NewWorkerQueue(capacity uint32, concurrency uint32) Queue {
+func NewWorkerQueue(capacity uint32, concurrency uint32) *workerQueue {
 	q := &workerQueue{
 		ch: make(chan Job, capacity),
 		wg: &sync.WaitGroup{},

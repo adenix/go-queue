@@ -92,7 +92,7 @@ func TestEnqueue(t *testing.T) {
 		t.Errorf("called should be 0 but is %d", s.called)
 	}
 
-	<-q.(*workerQueue).ch
+	<-q.ch
 	if ok := q.Enqueue(j); !ok {
 		failed++
 	}
